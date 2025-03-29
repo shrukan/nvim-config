@@ -7,5 +7,7 @@ opt.shiftwidth = 2
 opt.number = true
 opt.relativenumber = true
 
--- for bufferline
+opt.spell = true
+opt.spelllang = "en"
+
 opt.termguicolors = true
