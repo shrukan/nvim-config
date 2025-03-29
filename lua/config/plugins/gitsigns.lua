@@ -39,6 +39,7 @@ return {
 				virt_text_priority = 100,
 				use_focus = false,
 			},
+
 			current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
 			sign_priority                = 6,
 			update_debounce              = 100,
@@ -56,11 +57,11 @@ return {
 
 		-- keymaps
 		local keymap = vim.keymap
-		keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Git blame" })
-		keymap.set("n", "<leader>gts", "<cmd>Gitsigns toggle_signs<CR>", { desc = "Toggle git signs" })
-		keymap.set("n", "<leader>gtw", "<cmd>Gitsigns toggle_word_diff<CR>", { desc = "Toggle git word diff" })
+		keymap.set("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Blame" })
+		keymap.set("n", "<leader>gts", "<cmd>Gitsigns toggle_signs<CR>", { desc = "Signs" })
+		keymap.set("n", "<leader>gtw", "<cmd>Gitsigns toggle_word_diff<CR>", { desc = "Words" })
 		keymap.set("n", "<leader>gtb", "<cmd>Gitsigns toggle_current_line_blame<CR>",
-			{ desc = "Toggle git current line blame" })
-		keymap.set("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Toggle git deleted" })
+			{ desc = "Line blame" })
+		keymap.set("n", "<leader>gtd", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Deleted" })
 	end,
 }
