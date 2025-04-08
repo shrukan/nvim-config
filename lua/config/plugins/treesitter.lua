@@ -22,11 +22,15 @@ return {
 			},
 			-- ensure these language parsers are installed
 			ensure_installed = {
-				"json",
 				"go",
-				"yaml",
 				"lua",
+				"javascript",
+				"typescript",
+				"html",
+				"css",
 				"vim",
+				"json",
+				"yaml",
 				"gitignore",
 			},
 			incremental_selection = {
