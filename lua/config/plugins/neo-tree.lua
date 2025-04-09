@@ -9,10 +9,10 @@ return {
 	},
 	config = function()
 		local keymap = vim.keymap
-		keymap.set("n", "<leader>ee", "<cmd>Neotree left<CR>")
-		keymap.set("n", "<leader>ec", "<cmd>Neotree close filesystem<CR>")
-		keymap.set("n", "<leader>eb", "<cmd>Neotree buffers right<CR>")
-		keymap.set("n", "<leader>ef", "<cmd>Neotree right left reveal_force_cwd<CR>")
-		keymap.set("n", "<leader>gs", "<cmd>Neotree float git_status<CR>", { desc = "Git status" })
+		keymap.set("n", "<leader>et", "<cmd>Neotree toggle left<CR>", { desc = "Toggle" })
+		keymap.set("n", "<leader>ec", "<cmd>Neotree close filesystem<CR>", { desc = "Close" })
+		keymap.set("n", "<leader>eb", "<cmd>Neotree buffers right<CR>", { desc = "Buffers" })
+		keymap.set("n", "<leader>ef", "<cmd>Neotree right left reveal_force_cwd<CR>", { desc = "Open at current file" })
+		keymap.set("n", "<leader>gs", "<cmd>Neotree float git_status<CR>", { desc = "Status" })
 	end,
 }
