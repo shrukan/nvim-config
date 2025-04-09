@@ -12,16 +12,15 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 
 		local mason_tool_installer = require("mason-tool-installer")
-
 		-- enable mason and configure icons
 		mason.setup({
 			ui = {
 				icons = {
 					package_installed = "✓",
 					package_pending = "➜",
-					package_uninstalled = "✗"
-				}
-			}
+					package_uninstalled = "✗",
+				},
+			},
 		})
 
 		-- list of lsp servers for mason to install
@@ -29,10 +28,11 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"gopls",
+				"ts_ls",
+				"cssls",
 				"taplo",
 				"jsonls",
 				"yamlls",
-				"golangci_lint_ls"
 			},
 
 			-- auto-install configured servers (with lspconfig)
@@ -42,12 +42,17 @@ return {
 		-- list of formatter servers for mason to install
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier", -- prettier formatter
-				"stylua", -- lua formatter
-				"gofumpt", -- go formatter
+				-- formatters
+				"prettier",
+				"stylua", -- lua
+				"gofumpt", -- go
+				"gci", -- go import order
+				"golines", -- go long lines
 
-				"golangci-lint",
-				"selene", -- lua linter
+				-- linters
+				"golangci-lint", -- go
+				"eslint_d", -- js
+				"selene", -- lua
 			},
 
 			automatic_installation = true,

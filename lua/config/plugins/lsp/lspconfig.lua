@@ -12,39 +12,47 @@ return {
 		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		local keymap = vim.keymap -- for conciseness
-
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
 			opts.buffer = bufnr
 
-			-- set keybindings
-			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>Telescope lsp_references initial_mode=normal<CR>", opts) -- show definition, references
+			-- toggle inlay hints (start with true)
+			vim.lsp.inlay_hint.enable(true)
+			local toggle_inlay_hints = function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+			end
+
+			local keymap = vim.keymap
+
+			opts.desc = "References"
+			keymap.set("n", "<leader>cr", "<cmd>Telescope lsp_references initial_mode=normal<CR>", opts) -- show definition, references
+
+			opts.desc = "Toggle inlay hints"
+			keymap.set("n", "<leader>ch", toggle_inlay_hints, opts)
 
 			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+			keymap.set("n", "<leader>cD", vim.lsp.buf.declaration, opts) -- go to declaration
 
-			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+			opts.desc = "Go to definition"
+			keymap.set("n", "<leader>cd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
-			opts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+			opts.desc = "Implementations"
+			keymap.set("n", "<leader>ci", "<cmd>Telescope lsp_implementations initial_mode=normal<CR>", opts) -- show lsp implementations
 
 			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+			keymap.set("n", "<leader>ct", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
-			opts.desc = "See available code actions"
+			opts.desc = "Available actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- show available code actions
 
-			opts.desc = "Smart rename"
-			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- show rename
+			opts.desc = "Rename"
+			keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts) -- show rename
 
 			opts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show diagnostis for file
+			keymap.set("n", "<leader>cbd", "<cmd>Telescope diagnostics bufnr=0 initial_mode=normal<CR>", opts) -- show diagnostis for file
 
-			opts.desc = "Show line diagnostis"
-			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show dagnostics for file
+			opts.desc = "Show line diagnostics"
+			keymap.set("n", "<leader>cld", vim.diagnostic.open_float, opts)
 
 			opts.desc = "Go to previous diagnostic"
 			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
@@ -53,7 +61,7 @@ return {
 			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 
 			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+			keymap.set("n", "<leader>ce", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
 			opts.desc = "Restart LSP"
 			keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts) -- mapping to restart lsp if necessary
@@ -80,9 +88,17 @@ return {
 					},
 					hint = {
 						enable = true,
+						setType = true,
+						paramType = true,
+						paramName = "Enable",
+						semicolon = "Enable",
+						arrayIndex = "Disable",
 					},
 					completion = {
 						callSnippet = "Replace",
+					},
+					codeLens = {
+						enable = true,
 					},
 				},
 			},
@@ -90,7 +106,7 @@ return {
 
 		-- configure go server
 		lspconfig["gopls"].setup({
-			cmd = { 'gopls' },
+			cmd = { "gopls" },
 			on_attach = on_attach,
 			capabilities = capabilities,
 			settings = {
@@ -110,11 +126,29 @@ return {
 						functionTypeParameters = true,
 					},
 					staticcheck = true,
+					semanticTokens = true,
 				},
 			},
 			init_options = {
 				usePlaceholders = true,
-			}
+			},
+		})
+
+		-- configure servers for web development
+		lspconfig["ts_ls"].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			MaxTsServerMemory = 4096,
+			preferences = {
+				includeInlayParameterTypeHints = "all",
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+			},
+		})
+
+		lspconfig["cssls"].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
 		})
 
 		-- configure toml server
