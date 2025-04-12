@@ -31,6 +31,7 @@ return {
 				"vim",
 				"json",
 				"yaml",
+				"sql",
 				"gitignore",
 			},
 			incremental_selection = {
