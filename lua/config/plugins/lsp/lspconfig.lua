@@ -130,7 +130,7 @@ return {
 				},
 			},
 			init_options = {
-				usePlaceholders = true,
+				usePlaceholders = false,
 			},
 		})
 
@@ -164,9 +164,20 @@ return {
 		})
 
 		-- configure yaml server
-		lspconfig["yamlls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["yamlls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	settings = {
+		-- 		yaml = {
+		-- 			format = {
+		-- 				enable = true,
+		-- 			},
+		-- 			validate = true,
+		-- 			schemaStore = {
+		-- 				enable = true,
+		-- 			},
+		-- 		},
+		-- 	},
+		-- })
 	end,
 }
