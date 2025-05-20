@@ -33,6 +33,7 @@ return {
 				"taplo",
 				"jsonls",
 				"yamlls",
+				"dockerls",
 			},
 
 			-- auto-install configured servers (with lspconfig)

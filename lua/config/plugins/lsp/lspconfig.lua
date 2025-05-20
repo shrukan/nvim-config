@@ -163,6 +163,18 @@ return {
 			on_attach = on_attach,
 		})
 
+		-- configure json server
+		lspconfig["jsonls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- configure docker server
+		lspconfig["dockerls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure yaml server
 		-- lspconfig["yamlls"].setup({
 		-- 	capabilities = capabilities,
