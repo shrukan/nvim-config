@@ -3,15 +3,13 @@ return {
 	config = function()
 		local lsp_lines = require("lsp_lines")
 
-		lsp_lines.toggle()
-
 		vim.diagnostic.config({
 			virtual_text = true,
 		})
 
 		Virtual_text = true
 
-		lsp_lines.setup(vim.keymap.set("", "<Leader>cll", function()
+		lsp_lines.setup(vim.keymap.set("", "<Leader>ctl", function()
 			lsp_lines.toggle()
 
 			Virtual_text = not Virtual_text
