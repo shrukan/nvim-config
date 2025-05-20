@@ -13,6 +13,8 @@ return {
 			{ "<leader>c", group = "Code" },
 			{ "<leader>ct", group = "Toggle" },
 
+			{ "<leader>t", group = "Toggle" },
+
 			{ "<leader>f", group = "Find" },
 		})
 	end,
