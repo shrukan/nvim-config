@@ -5,13 +5,18 @@ return {
 	config = function()
 		require("catppuccin").setup({
 			flavour = "mocha",
+			term_colors = true,
 			integration = {
-				cmp = true,
+				illuminate = true,
 				gitsigns = true,
-				telescope = true,
-				treesitter = true,
-				which_key = true,
 				mason = true,
+				neotree = true,
+				telescope = {
+					enabled = true,
+				},
+				treesiter = true,
+				treesitter_context = true,
+				which_key = true,
 			},
 		})
 	end,
