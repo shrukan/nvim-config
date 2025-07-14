@@ -34,6 +34,7 @@ return {
 				"jsonls",
 				"yamlls",
 				"dockerls",
+				"docker_compose_language_service",
 			},
 
 			-- auto-install configured servers (with lspconfig)

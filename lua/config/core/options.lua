@@ -11,3 +11,12 @@ opt.spell = true
 opt.spelllang = "en"
 
 opt.termguicolors = true
+
+vim.filetype.add({
+	filename = {
+		["docker-compose.yml"] = "yaml.docker-compose",
+		["docker-compose.yaml"] = "yaml.docker-compose",
+		["compose.yml"] = "yaml.docker-compose",
+		["compose.yaml"] = "yaml.docker-compose",
+	},
+})
