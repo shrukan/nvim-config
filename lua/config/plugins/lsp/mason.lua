@@ -29,6 +29,7 @@ return {
 				"lua_ls",
 				"gopls",
 				"ts_ls",
+				"angularls",
 				"cssls",
 				"taplo",
 				"jsonls",

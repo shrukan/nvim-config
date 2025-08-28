@@ -134,6 +134,22 @@ return {
 			},
 		})
 
+		lspconfig["angularls"].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			root_markers = { "angular.json", "nx.json" },
+			cmd = {
+				"ngserver",
+				"--stdio",
+				"--tsProbeLocations",
+				"../..,?/node_modules",
+				"--ngProbeLocations",
+				"../../@angular/language-server/node_modules,?/node_modules/@angular/language-server/node_modules",
+				"--angularCoreVersion",
+				"",
+			},
+		})
+
 		-- configure servers for web development
 		lspconfig["ts_ls"].setup({
 			on_attach = on_attach,

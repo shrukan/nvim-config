@@ -26,6 +26,7 @@ return {
 				"lua",
 				"javascript",
 				"typescript",
+				"angular",
 				"html",
 				"css",
 				"vim",
