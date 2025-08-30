@@ -40,6 +40,7 @@ return {
 
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true,
+			automatic_enable = false,
 		})
 
 		-- list of formatter servers for mason to install
