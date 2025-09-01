@@ -7,8 +7,11 @@ return {
 			flavour = "mocha",
 			term_colors = true,
 			integration = {
+				lazygit = true,
+				sttusline = true,
 				illuminate = true,
 				gitsigns = true,
+				toogleterminal = true,
 				mason = true,
 				neotree = true,
 				telescope = {
