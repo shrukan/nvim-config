@@ -1,15 +1,11 @@
 return {
 	"williamboman/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
 		-- import mason
 		local mason = require("mason")
-
-		-- import mason-lspconfig
-		local mason_lspconfig = require("mason-lspconfig")
 
 		local mason_tool_installer = require("mason-tool-installer")
 		-- enable mason and configure icons
@@ -23,39 +19,36 @@ return {
 			},
 		})
 
-		-- list of lsp servers for mason to install
-		mason_lspconfig.setup({
-			ensure_installed = {
-				"lua_ls",
-				"gopls",
-				"ts_ls",
-				"angularls",
-				"cssls",
-				"taplo",
-				"jsonls",
-				"yamlls",
-				"dockerls",
-				"docker_compose_language_service",
-			},
+		local has_go = function()
+			return vim.fn.executable("go") == 1
+		end
 
-			-- auto-install configured servers (with lspconfig)
-			automatic_installation = true,
-			automatic_enable = false,
-		})
-
-		-- list of formatter servers for mason to install
+		-- list of tools for mason to install
 		mason_tool_installer.setup({
 			ensure_installed = {
+				-- lsp
+				"lua-language-server",
+				{ "gopls", condition = has_go },
+				"typescript-language-server",
+				"angular-language-server",
+				"css-lsp",
+				"taplo",
+				"json-lsp",
+				"yaml-language-server",
+				"dockerfile-language-server",
+				"docker-compose-language-service",
+
 				-- formatters
-				"prettier",
+				"prettier", -- web
 				"stylua", -- lua
-				"gofumpt", -- go
-				"gci", -- go import order
-				"golines", -- go long lines
+				-- go specific
+				{ "gofumpt", condition = has_go },
+				{ "gci", condition = has_go }, -- go import order
+				{ "golines", condition = has_go }, -- go long lines
 
 				-- linters
-				"golangci-lint", -- go
-				"eslint_d", -- js
+				{ "golangci-lint", condition = has_go }, -- go
+				"eslint_d", -- web
 				"selene", -- lua
 			},
 

@@ -12,6 +12,7 @@ return {
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				html = { "prettier" },
+				htmlangular = { "prettier" },
 				css = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
