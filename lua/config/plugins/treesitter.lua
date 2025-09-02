@@ -20,6 +20,8 @@ return {
 			autotag = {
 				enable = true,
 			},
+			-- ensure that all parser are installed sequentially (used in image)
+			sync_install = true,
 			-- ensure these language parsers are installed
 			ensure_installed = {
 				"go",
