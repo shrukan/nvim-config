@@ -1,10 +1,16 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+	dependencies = {
+		{
+			"nvim-treesitter/nvim-treesitter-context",
+			event = "BufReadPost",
+			opts = function()
+				return { mode = "cursor", max_lines = 3 }
+			end,
+		},
+	},
 	event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
-	dependencies = {
-		"windwp/nvim-ts-autotag",
-	},
 	config = function()
 		-- import nvim-treesitter plugin
 		local treesitter = require("nvim-treesitter.configs")
@@ -16,10 +22,7 @@ return {
 			},
 			-- enable indentation
 			indent = { enable = true },
-			-- enable autotagging (w/ nvim-ts-autotag plugin)
-			autotag = {
-				enable = true,
-			},
+
 			-- ensure that all parser are installed sequentially (used in image)
 			sync_install = true,
 			-- ensure these language parsers are installed
