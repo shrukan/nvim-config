@@ -16,6 +16,8 @@ return {
 			{ "<leader>t", group = "Toggle" },
 
 			{ "<leader>f", group = "Find" },
+
+			{ "<leader>s", group = "Settings" },
 		})
 	end,
 	keys = {

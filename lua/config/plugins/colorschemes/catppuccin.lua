@@ -1,6 +1,6 @@
 return {
 	"catppuccin/nvim",
-	name = "catppuccin",
+	name = "catppucin",
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
@@ -12,6 +12,7 @@ return {
 				illuminate = true,
 				gitsigns = true,
 				toogleterminal = true,
+				noice = true,
 				mason = true,
 				neotree = true,
 				telescope = {
@@ -22,7 +23,5 @@ return {
 				which_key = true,
 			},
 		})
-
-		vim.cmd("colorscheme catppuccin")
 	end,
 }

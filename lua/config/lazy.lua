@@ -29,6 +29,7 @@ require("lazy").setup({
 		{ import = "config.plugins" },
 		{ import = "config.plugins.lsp" },
 		{ import = "config.plugins.go" },
+		{ import = "config.plugins.colorschemes" },
 	},
 	checker = {
 		enabled = true,
