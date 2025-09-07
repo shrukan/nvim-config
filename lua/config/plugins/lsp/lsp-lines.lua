@@ -9,7 +9,7 @@ return {
 
 		Virtual_text = true
 
-		lsp_lines.setup(vim.keymap.set("", "<Leader>ctl", function()
+		lsp_lines.setup(vim.keymap.set("n", "<leader>sd", function()
 			lsp_lines.toggle()
 
 			Virtual_text = not Virtual_text
