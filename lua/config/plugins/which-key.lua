@@ -20,8 +20,9 @@ return {
 			{ "<leader>gt", group = "Toggle" },
 
 			{ "<leader>c", group = "Code" },
-			{ "<leader>ct", group = "Toggle" },
-
+			{ "<leader>cc", group = "Calls" },
+			{ "<leader>cf", group = "Finder" },
+			{ "<leader>ci", group = "Information" },
 
 			{ "<leader>f", group = "Search" },
 
