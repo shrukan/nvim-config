@@ -4,6 +4,15 @@ return {
 	opts = {},
 	config = function()
 		local wk = require("which-key")
+		wk.setup({
+			preset = "helix",
+			delay = 10,
+			plugins = {
+				presets = {
+					z = false,
+				},
+			},
+		})
 		wk.add({
 			{ "<leader>e", group = "Filesystem" },
 
@@ -13,9 +22,8 @@ return {
 			{ "<leader>c", group = "Code" },
 			{ "<leader>ct", group = "Toggle" },
 
-			{ "<leader>t", group = "Toggle" },
 
-			{ "<leader>f", group = "Find" },
+			{ "<leader>f", group = "Search" },
 
 			{ "<leader>s", group = "Settings" },
 		})

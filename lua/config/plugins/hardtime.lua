@@ -4,6 +4,6 @@ return {
 	dependencies = { "MunifTanjim/nui.nvim" },
 	opts = {},
 	keys = {
-		{ "<leader>th", "<cmd>Hardtime toggle<cr>", desc = "Hardtime" },
+		{ "<leader>sh", "<cmd>Hardtime toggle<cr>", desc = "Hardtime" },
 	},
 }
