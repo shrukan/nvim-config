@@ -52,5 +52,6 @@ return {
 			{ desc = "String under cursor in cwd" }
 		)
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope initial_mode=normal<cr>", { desc = "Todos" })
+		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers initial_mode=normal<cr>", { desc = "Buffers" })
 	end,
 }
