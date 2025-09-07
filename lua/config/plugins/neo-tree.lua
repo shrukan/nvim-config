@@ -9,6 +9,13 @@ return {
 	},
 	lazy = false,
 	config = function()
+		require("neo-tree").setup({
+			window = {
+				mappings = {
+					["Z"] = "expand_all_subnodes",
+				},
+			},
+		})
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>et", "<cmd>Neotree toggle left<CR>", { desc = "Toggle" })
 		keymap.set("n", "<leader>ec", "<cmd>Neotree close filesystem<CR>", { desc = "Close" })
