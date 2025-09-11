@@ -124,20 +124,25 @@ return {
 			},
 		})
 
+		local install_path = vim.fn.stdpath("data") .. "/mason/packages/angular-language-server/node_modules"
+		local ang = install_path .. "/@angular/language-server/node_modules"
+
+		local cmd = {
+			"ngserver",
+			"--stdio",
+			"--tsProbeLocations",
+			install_path,
+			"--ngProbeLocations",
+			ang,
+		}
+
 		lspconfig["angularls"].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 			root_markers = { "angular.json", "nx.json" },
-			cmd = {
-				"ngserver",
-				"--stdio",
-				"--tsProbeLocations",
-				"../..,?/node_modules",
-				"--ngProbeLocations",
-				"../../@angular/language-server/node_modules,?/node_modules/@angular/language-server/node_modules",
-				"--angularCoreVersion",
-				"",
-			},
+			on_new_config = function(new_config, _)
+				new_config.cmd = cmd
+			end,
 		})
 
 		-- configure servers for web development
