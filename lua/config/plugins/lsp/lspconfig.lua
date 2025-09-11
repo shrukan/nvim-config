@@ -109,7 +109,7 @@ return {
 						parameterNames = true,
 						constantValues = true,
 						assignVariableTypes = true,
-						compositeLteralFields = true,
+						compositeLiteralFields = true,
 						compositeLiteralTypes = true,
 						functionTypeParameters = true,
 					},
