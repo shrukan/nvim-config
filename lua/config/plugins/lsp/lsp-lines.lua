@@ -4,7 +4,9 @@ return {
 		local lsp_lines = require("lsp_lines")
 
 		vim.diagnostic.config({
-			virtual_text = true,
+			virtual_text = {
+				source = "if_many",
+			},
 		})
 
 		Virtual_text = true
@@ -14,9 +16,17 @@ return {
 
 			Virtual_text = not Virtual_text
 
-			vim.diagnostic.config({
-				virtual_text = Virtual_text,
-			})
+			if Virtual_text then
+				vim.diagnostic.config({
+					virtual_text = {
+						source = "if_many",
+					},
+				})
+			else
+				vim.diagnostic.config({
+					virtual_text = false,
+				})
+			end
 		end, { desc = "Toggle detailed line diagnostics" }))
 	end,
 }
