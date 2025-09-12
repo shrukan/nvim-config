@@ -29,10 +29,12 @@ return {
 				{ "gopls", condition = has_go },
 				"typescript-language-server",
 				"angular-language-server",
+				"html-lsp",
 				"css-lsp",
 				"taplo",
 				"json-lsp",
 				"yaml-language-server",
+				"emmet-language-server",
 				"dockerfile-language-server",
 				"docker-compose-language-service",
 

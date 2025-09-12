@@ -157,9 +157,35 @@ return {
 			},
 		})
 
+		lspconfig["html"].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
+
 		lspconfig["cssls"].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
+		})
+
+		lspconfig["emmet_language_server"].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			filetypes = {
+				"css",
+				"eruby",
+				"html",
+				"htmlangular",
+				"javascript",
+				"javascriptreact",
+				"less",
+				"sass",
+				"scss",
+				"pug",
+				"typescriptreact",
+			},
+			init_options = {
+				showSuggestionsAsSnippets = true,
+			},
 		})
 
 		-- configure toml server
