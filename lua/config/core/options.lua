@@ -8,7 +8,7 @@ opt.number = true
 opt.relativenumber = true
 
 opt.spell = true
-opt.spelllang = "en"
+opt.spelllang = "en_us"
 
 opt.termguicolors = true
 
@@ -18,5 +18,11 @@ vim.filetype.add({
 		["docker-compose.yaml"] = "yaml.docker-compose",
 		["compose.yml"] = "yaml.docker-compose",
 		["compose.yaml"] = "yaml.docker-compose",
+	},
+})
+
+vim.diagnostic.config({
+	float = {
+		source = "if_many",
 	},
 })
