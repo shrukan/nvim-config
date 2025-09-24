@@ -3,6 +3,6 @@ return {
 	version = "*",
 	config = true,
 	keys = {
-		{ "<leader>t", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
+		{ "<leader>T", "<cmd>ToggleTerm<cr>", desc = "Terminal" },
 	},
 }
