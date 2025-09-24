@@ -16,12 +16,13 @@ return {
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
 			htmlangular = { "eslint_d" },
+			html = { "eslint_d" },
 			dockerfile = { "hadolint" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = lint_augroup,
 			callback = function()
 				lint.try_lint()
