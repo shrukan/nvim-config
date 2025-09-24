@@ -12,6 +12,8 @@ opt.spelllang = "en_us"
 
 opt.termguicolors = true
 
+opt.cursorline = true
+
 vim.filetype.add({
 	filename = {
 		["docker-compose.yml"] = "yaml.docker-compose",
