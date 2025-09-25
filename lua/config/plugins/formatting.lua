@@ -18,9 +18,9 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 			},
-			format_after_save = {
-				lsp_fallback = true,
-				async = true,
+			format_on_save = {
+				lsp_format = "fallback",
+				async = false,
 				timeout_ms = 2000,
 			},
 			-- conform will notify you when no formatters are available for the buffer
