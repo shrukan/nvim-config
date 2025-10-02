@@ -10,6 +10,7 @@ return {
 	lazy = false,
 	config = function()
 		require("neo-tree").setup({
+			enable_diagnostics = true,
 			window = {
 				mappings = {
 					["Z"] = "expand_all_subnodes",
