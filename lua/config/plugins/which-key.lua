@@ -26,6 +26,10 @@ return {
 
 			{ "<leader>f", group = "Search" },
 
+			{ "<leader>m", group = "Markview" },
+			{ "<leader>mc", group = "Checkbox" },
+			{ "<leader>me", group = "Editor" },
+			{ "<leader>ms", group = "Split" },
 			{ "<leader>s", group = "Settings" },
 		})
 	end,
