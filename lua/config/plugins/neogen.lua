@@ -6,7 +6,22 @@ return {
 			languages = {
 				lua = {
 					template = {
-						annotation_convention = "emmylua", -- for a full list of annotation_conventions, see supported-languages below,
+						annotation_convention = "emmylua",
+					},
+					typescript = {
+						template = {
+							annotation_convention = "tsdoc",
+						},
+					},
+					typescriptreact = {
+						template = {
+							annotation_convention = "tsdoc",
+						},
+					},
+					python = {
+						template = {
+							annotation_convention = "google_docstrings",
+						},
 					},
 				},
 			},
