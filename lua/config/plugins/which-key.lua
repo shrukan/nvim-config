@@ -23,7 +23,6 @@ return {
 
 			{ "<leader>f", group = "Search" },
 
-			{ "<leader>m", group = "Markview" },
 			{ "<leader>g", group = "Git" },
 			{ "<leader>gt", group = "Toggle" },
 
