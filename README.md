@@ -1,6 +1,8 @@
 # Neovim Config
 
-This is my neovim basic config for web applications with go in the backend. Furthermore, it also supports lua.
+This is my current neovim configuration built from scratch.
+
+## Plugins
 
 ## Known problems
 
