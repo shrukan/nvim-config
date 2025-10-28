@@ -31,6 +31,7 @@ return {
 			{ "<leader>me", group = "Editor" },
 			{ "<leader>ms", group = "Split" },
 			{ "<leader>s", group = "Settings", icon = "" },
+			{ "<leader>t", group = "Test", icon = "" },
 		})
 	end,
 	keys = {
