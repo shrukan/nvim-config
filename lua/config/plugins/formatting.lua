@@ -17,6 +17,9 @@ return {
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
+				bash = { "shfmt" },
+				sh = { "shfmt" },
+				zsh = { "shfmt" },
 			},
 			format_on_save = {
 				lsp_format = "fallback",

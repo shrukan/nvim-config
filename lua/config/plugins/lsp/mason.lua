@@ -37,10 +37,12 @@ return {
 				"emmet-language-server",
 				"dockerfile-language-server",
 				"docker-compose-language-service",
+				"bash-language-server",
 
 				-- formatters
 				"prettier", -- web
 				"stylua", -- lua
+				"shfmt", -- bash
 				-- go specific
 				{ "gofumpt", condition = has_go },
 				{ "gci", condition = has_go }, -- go import order
@@ -51,6 +53,7 @@ return {
 				"eslint_d", -- web
 				"selene", -- lua
 				"hadolint", -- dockerfile
+				"shellcheck", -- bash
 			},
 
 			automatic_installation = true,

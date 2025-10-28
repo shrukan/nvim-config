@@ -18,6 +18,9 @@ return {
 			htmlangular = { "eslint_d" },
 			html = { "eslint_d" },
 			dockerfile = { "hadolint" },
+			bash = { "shellcheck" },
+			sh = { "shellcheck" },
+			zsh = { "shellcheck" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

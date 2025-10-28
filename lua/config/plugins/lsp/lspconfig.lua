@@ -212,6 +212,8 @@ return {
 			on_attach = on_attach,
 		})
 
+		vim.lsp.enable("bashls")
+
 		-- configure yaml server
 		-- lspconfig["yamlls"].setup({
 		-- 	capabilities = capabilities,
