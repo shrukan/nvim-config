@@ -22,6 +22,8 @@ return {
 			finder = {
 				keys = {
 					toggle_or_open = "<CR>",
+					split = "s",
+					vsplit = "S",
 				},
 			},
 			implement = {
