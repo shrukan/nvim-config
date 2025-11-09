@@ -63,6 +63,6 @@ return {
 
 		-- keymaps
 		local keymap = vim.keymap
-		keymap.set("n", "<leader>si", "<cmd>IlluminateToggle<CR>", { desc = "Highlights word under cursor" })
+		keymap.set("n", "<leader>sH", "<cmd>IlluminateToggle<CR>", { desc = "Highlights word under cursor" })
 	end,
 }
