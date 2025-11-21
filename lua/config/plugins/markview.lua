@@ -5,10 +5,14 @@ return {
 		"saghen/blink.cmp",
 	},
 	config = function()
+		local preset = require("markview.presets").tables
+
 		require("markview").setup({
 			preview = {
 				modes = { "i", "n", "no", "c" },
+				hybrid_modes = { "i" },
 			},
+			markdown = { tables = preset.single },
 		})
 		-- Enable checkbox extra
 		require("markview.extras.checkboxes").setup()
@@ -25,6 +29,8 @@ return {
 
 		keymap.set("n", "<leader>mec", "<cmd>Editor create<CR>", { desc = "Create" })
 		keymap.set("n", "<leader>mee", "<cmd>Editor edit<CR>", { desc = "Edit" })
+
+		keymap.set("n", "<leader>mh", "<cmd>Markview HybridToggle<CR>", { desc = "Hybrid" })
 
 		keymap.set("n", "<leader>msr", "<cmd>Markview splitRedraw<CR>", { desc = "Redraw" })
 		keymap.set("n", "<leader>mst", "<cmd>Markview splitToggle<CR>", { desc = "Toggle" })

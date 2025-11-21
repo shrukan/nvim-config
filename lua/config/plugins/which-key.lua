@@ -28,7 +28,7 @@ return {
 
 			{ "<leader>m", group = "Markview", icon = "" },
 			{ "<leader>mc", group = "Checkbox" },
-			{ "<leader>me", group = "Editor" },
+			{ "<leader>me", group = "Code" },
 			{ "<leader>ms", group = "Split" },
 
 			{ "<leader>s", group = "Settings", icon = "" },
