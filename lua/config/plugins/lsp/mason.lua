@@ -47,6 +47,7 @@ return {
 				{ "gofumpt", condition = has_go },
 				{ "gci", condition = has_go }, -- go import order
 				{ "golines", condition = has_go }, -- go long lines
+				{ "goimports", condition = has_go }, -- go long lines
 
 				-- linters
 				{ "golangci-lint", condition = has_go }, -- go
