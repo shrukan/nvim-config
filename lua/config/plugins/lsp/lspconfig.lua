@@ -1,10 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-	},
 	opts = {
 		capabilities = {
 			textDocument = {
@@ -16,33 +12,21 @@ return {
 		},
 	},
 	config = function()
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
-
-		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
 		local opts = { noremap = true, silent = true }
-		local on_attach = function(client, bufnr)
-			opts.buffer = bufnr
 
-			-- toggle inlay hints (start with true)
-			vim.lsp.inlay_hint.enable(true)
-			local toggle_inlay_hints = function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-			end
-
-			local keymap = vim.keymap
-
-			opts.desc = "Toggle inlay hints"
-			keymap.set("n", "<leader>ch", toggle_inlay_hints, opts)
-
-			opts.desc = "Restart LSP"
-			keymap.set("n", "<leader>sr", "<cmd>LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+		-- toggle inlay hints (start with true)
+		vim.lsp.inlay_hint.enable(true)
+		local toggle_inlay_hints = function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end
 
-		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local keymap = vim.keymap
+
+		opts.desc = "Toggle inlay hints"
+		keymap.set("n", "<leader>ch", toggle_inlay_hints, opts)
+
+		opts.desc = "Restart LSP"
+		keymap.set("n", "<leader>sr", "<cmd>LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
@@ -51,9 +35,7 @@ return {
 		end
 
 		-- configure lua server
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
+		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					-- make the language server recognize "vim" global
@@ -78,11 +60,11 @@ return {
 			},
 		})
 
+		vim.lsp.enable("lua_ls")
+
 		-- configure go server
-		lspconfig["gopls"].setup({
+		vim.lsp.config("gopls", {
 			cmd = { "gopls" },
-			on_attach = on_attach,
-			capabilities = capabilities,
 			settings = {
 				gopls = {
 					gofumpt = false,
@@ -124,6 +106,8 @@ return {
 			},
 		})
 
+		vim.lsp.enable("gopls")
+
 		local install_path = vim.fn.stdpath("data") .. "/mason/packages/angular-language-server/node_modules"
 		local ang = install_path .. "/@angular/language-server/node_modules"
 
@@ -136,19 +120,17 @@ return {
 			ang,
 		}
 
-		lspconfig["angularls"].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
+		vim.lsp.config("angularls", {
 			root_markers = { "angular.json", "nx.json" },
 			on_new_config = function(new_config, _)
 				new_config.cmd = cmd
 			end,
 		})
 
+		vim.lsp.enable("angularls")
+
 		-- configure servers for web development
-		lspconfig["ts_ls"].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
+		vim.lsp.config("ts_ls", {
 			MaxTsServerMemory = 4096,
 			preferences = {
 				includeInlayParameterTypeHints = "all",
@@ -157,14 +139,9 @@ return {
 			},
 		})
 
-		lspconfig["cssls"].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-		})
+		vim.lsp.enable("ts_ls")
 
-		lspconfig["emmet_language_server"].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
+		vim.lsp.config("emmet_language_server", {
 			filetypes = {
 				"css",
 				"eruby",
@@ -184,51 +161,16 @@ return {
 		})
 
 		-- configure toml server
-		lspconfig["taplo"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		vim.lsp.enable("taplo")
 
 		-- configure json server
-		lspconfig["jsonls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure json server
-		lspconfig["jsonls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		vim.lsp.enable("jsonls")
 
 		-- configure docker server
-		lspconfig["dockerls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		vim.lsp.enable("dockerls")
 
-		lspconfig["docker_compose_language_service"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		vim.lsp.enable("docker_compose_language_service")
 
 		vim.lsp.enable("bashls")
-
-		-- configure yaml server
-		-- lspconfig["yamlls"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		yaml = {
-		-- 			format = {
-		-- 				enable = true,
-		-- 			},
-		-- 			validate = true,
-		-- 			schemaStore = {
-		-- 				enable = true,
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
 	end,
 }
