@@ -10,12 +10,14 @@ return {
 				fg = "#b7c6e2",
 			},
 			highlights = {
-				-- ["@tag"] = colors.red,
 				-- Tags
 				["@tag"] = { fg = "$red" }, -- Tags like HTML tag names.
 				["@tag.builtin"] = { fg = "$red" }, -- JSX tag names.
 				["@tag.attribute"] = { fg = "$yellow", style = { "italic" } }, -- XML/HTML attributes (foo in foo="bar").
-				["@tag.delimiter"] = { fg = "$red" }, -- Tag delimiter
+				["@tag.delimiter"] = { fg = "$dark_red" }, -- Tag delimiter
+
+				["@nospell"] = { fg = "none" },
+				["@spell"] = { fg = "none" },
 			},
 		})
 	end,
