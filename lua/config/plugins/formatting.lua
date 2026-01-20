@@ -4,8 +4,15 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				golangcilint = {
+					command = "golangci-lint",
+					args = { "fmt", "--stdin" },
+					cwd = require("conform.util").root_file({ ".golangci.yml", "go.mod", "go.sum" }),
+				},
+			},
 			formatters_by_ft = {
-				go = { "gofumpt", "golines", "goimports", "gci" },
+				go = { "golangcilint" },
 				lua = { "stylua" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
@@ -16,7 +23,7 @@ return {
 				css = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "prettier" },
+				markdown = { "rumdl" },
 				bash = { "shfmt" },
 				sh = { "shfmt" },
 				zsh = { "shfmt" },
