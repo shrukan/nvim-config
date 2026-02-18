@@ -5,6 +5,7 @@ return {
 
 		conform.setup({
 			formatters = {
+					command = "rumdl",
 				golangcilint = {
 					command = "golangci-lint",
 					args = { "fmt", "--stdin" },

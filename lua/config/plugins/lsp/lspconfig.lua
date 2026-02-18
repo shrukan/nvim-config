@@ -136,6 +136,7 @@ return {
 				includeInlayParameterTypeHints = "all",
 				includeInlayFunctionParameterTypeHints = true,
 				includeInlayVariableTypeHints = true,
+				importModuleSpecifierPreference = "project-relative",
 			},
 		})
 
