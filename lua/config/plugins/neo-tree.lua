@@ -16,6 +16,9 @@ return {
 					["Z"] = "expand_all_subnodes",
 				},
 			},
+			filesystem = {
+				bind_to_cwd = true,
+			},
 		})
 		local keymap = vim.keymap
 		keymap.set("n", "<leader>et", "<cmd>Neotree toggle left<CR>", { desc = "Toggle" })
