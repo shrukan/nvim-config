@@ -70,7 +70,7 @@ return {
 			},
 
 			list = {
-				selection = { preselect = false },
+				selection = { preselect = true },
 			},
 		},
 
