@@ -142,6 +142,7 @@ return {
 
 		vim.lsp.enable("ts_ls")
 		vim.lsp.enable("cssls")
+		vim.lsp.enable("html")
 
 		vim.lsp.config("emmet_language_server", {
 			filetypes = {
