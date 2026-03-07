@@ -43,18 +43,16 @@ return {
 				"prettier", -- web
 				"stylua", -- lua
 				"shfmt", -- bash
-				-- go specific
-				{ "gofumpt", condition = has_go },
-				{ "gci", condition = has_go }, -- go import order
-				{ "golines", condition = has_go }, -- go long lines
-				{ "goimports", condition = has_go }, -- go long lines
 
 				-- linters
-				{ "golangci-lint", condition = has_go }, -- go
 				"eslint_d", -- web
 				"selene", -- lua
 				"hadolint", -- dockerfile
 				"shellcheck", -- bash
+
+				-- formatter/linters
+				{ "golangci-lint", condition = has_go }, -- go
+				"rumdl",
 			},
 
 			automatic_installation = true,
