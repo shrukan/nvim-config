@@ -19,6 +19,8 @@ return {
 			{ "<leader>cf", group = "Finder" },
 			{ "<leader>ci", group = "Information" },
 
+			{ "<leader>d", group = "Debug", icon = "" },
+
 			{ "<leader>e", group = "Filesystem" },
 
 			{ "<leader>f", group = "Search" },

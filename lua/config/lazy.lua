@@ -28,6 +28,7 @@ require("lazy").setup({
 	spec = {
 		{ import = "config.plugins" },
 		{ import = "config.plugins.lsp" },
+		{ import = "config.plugins.dap" },
 		{ import = "config.plugins.colorschemes" },
 	},
 	checker = {
