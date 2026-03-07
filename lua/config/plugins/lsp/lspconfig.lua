@@ -175,5 +175,7 @@ return {
 		vim.lsp.enable("docker_compose_language_service")
 
 		vim.lsp.enable("bashls")
+
+		vim.lsp.enable("marksman")
 	end,
 }

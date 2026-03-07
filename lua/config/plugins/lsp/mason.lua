@@ -38,6 +38,7 @@ return {
 				"dockerfile-language-server",
 				"docker-compose-language-service",
 				"bash-language-server",
+				"marksman",
 
 				-- formatters
 				"prettier", -- web

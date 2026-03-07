@@ -5,13 +5,17 @@ return {
 
 		conform.setup({
 			formatters = {
+				rumdl = {
 					command = "rumdl",
+					args = "fmt --stdin",
+				},
 				golangcilint = {
 					command = "golangci-lint",
 					args = { "fmt", "--stdin" },
 					cwd = require("conform.util").root_file({ ".golangci.yml", "go.mod", "go.sum" }),
 				},
 			},
+
 			formatters_by_ft = {
 				go = { "golangcilint" },
 				lua = { "stylua" },

@@ -24,6 +24,7 @@ return {
 			lua = { "selene" },
 			go = { "golangcilint" },
 			mod = { "golangcilint" },
+			markdown = { "rumdl" },
 			javascript = { "eslint_d" },
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
