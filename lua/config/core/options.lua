@@ -9,6 +9,7 @@ opt.relativenumber = true
 
 opt.spell = true
 opt.spelllang = "en_us"
+opt.spelloptions = "camel"
 
 opt.termguicolors = true
 
