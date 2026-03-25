@@ -34,8 +34,9 @@ return {
 				zsh = { "shfmt" },
 			},
 
-			format_after_save = {
-				async = true,
+			format_on_save = {
+				lsp_fallback = true,
+				timeout_ms = 500,
 			},
 			-- conform will notify you when no formatters are available for the buffer
 			notify_no_formatters = true,
