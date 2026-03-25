@@ -5,6 +5,7 @@ return {
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"archie-judd/blink-cmp-words",
+		"ribru17/blink-cmp-spell",
 		"MahanRahmati/blink-nerdfont.nvim",
 		{
 			"mikavilpas/blink-ripgrep.nvim",
@@ -77,8 +78,13 @@ return {
 		-- default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "ripgrep", "nerdfont" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", "ripgrep", "nerdfont", "spell" },
 			providers = {
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
 				lsp = {
 					score_offset = 10,
 				},
@@ -93,6 +99,28 @@ return {
 					name = "Ripgrep",
 					opts = {},
 					score_offset = 0,
+				},
+
+				spell = {
+					name = "Spell",
+					module = "blink-cmp-spell",
+					opts = {
+						-- EXAMPLE: Only enable source in `@spell` captures, and disable it
+						-- in `@nospell` captures.
+						enable_in_context = function()
+							local curpos = vim.api.nvim_win_get_cursor(0)
+							local captures = vim.treesitter.get_captures_at_pos(0, curpos[1] - 1, curpos[2] - 1)
+							local in_spell_capture = false
+							for _, cap in ipairs(captures) do
+								if cap.capture == "spell" then
+									in_spell_capture = true
+								elseif cap.capture == "nospell" then
+									return false
+								end
+							end
+							return in_spell_capture
+						end,
+					},
 				},
 				-- Use the thesaurus source
 				thesaurus = {
