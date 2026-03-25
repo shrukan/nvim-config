@@ -36,6 +36,7 @@ return {
 
 		-- configure lua server
 		vim.lsp.config("lua_ls", {
+			---@type lspconfig.settings.lua_ls
 			settings = {
 				Lua = {
 					-- make the language server recognize "vim" global
@@ -46,8 +47,8 @@ return {
 						enable = true,
 						setType = true,
 						paramType = true,
-						paramName = "Enable",
-						semicolon = "Enable",
+						paramName = "All",
+						semicolon = "All",
 						arrayIndex = "Disable",
 					},
 					completion = {
@@ -131,12 +132,15 @@ return {
 
 		-- configure servers for web development
 		vim.lsp.config("ts_ls", {
-			MaxTsServerMemory = 4096,
-			preferences = {
-				includeInlayParameterTypeHints = "all",
-				includeInlayFunctionParameterTypeHints = true,
-				includeInlayVariableTypeHints = true,
-				importModuleSpecifierPreference = "project-relative",
+			---@type lspconfig.settings.ts_ls
+			settings = {
+				MaxTsServerMemory = 4096,
+				preferences = {
+					includeInlayParameterTypeHints = "all",
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayVariableTypeHints = true,
+					importModuleSpecifierPreference = "project-relative",
+				},
 			},
 		})
 
