@@ -177,5 +177,7 @@ return {
 		vim.lsp.enable("bashls")
 
 		vim.lsp.enable("marksman")
+
+		vim.lsp.enable("zuban")
 	end,
 }

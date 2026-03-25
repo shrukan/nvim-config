@@ -23,6 +23,7 @@ return {
 		lint.linters_by_ft = {
 			lua = { "selene" },
 			go = { "golangcilint" },
+			python = { "ruff" },
 			mod = { "golangcilint" },
 			markdown = { "rumdl" },
 			javascript = { "eslint_d" },
