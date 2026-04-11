@@ -1,5 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = {
+		"b0o/schemastore.nvim",
+	},
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
 		capabilities = {
@@ -170,8 +173,37 @@ return {
 		-- configure toml server
 		vim.lsp.enable("taplo")
 
-		-- configure json server
+		vim.lsp.config("jsonls", {
+			---@type lspconfig.settings.jsonls
+			settings = {
+				json = {
+					schemaStore = {
+						enable = false,
+						url = "",
+					},
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
+				},
+			},
+		})
+
 		vim.lsp.enable("jsonls")
+
+		vim.lsp.config("yamlls", {
+			---@type lspconfig.settings.yamlls
+			settings = {
+				yaml = {
+					schemaStore = {
+						enable = false,
+						url = "",
+					},
+					schemas = require("schemastore").yaml.schemas(),
+					validate = true,
+				},
+			},
+		})
+
+		vim.lsp.enable("yamlls")
 
 		-- configure docker server
 		vim.lsp.enable("dockerls")
