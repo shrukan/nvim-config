@@ -45,6 +45,7 @@ return {
 				"git_rebase",
 				"gitignore",
 				"gitattributes",
+				"make",
 				"markdown",
 				"markdown_inline",
 				"bash",

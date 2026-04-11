@@ -57,12 +57,14 @@ return {
 				"prettier", -- web
 				"stylua", -- lua
 				"shfmt", -- bash
+				"mbake", -- makefile
 
 				-- linters
 				"eslint_d", -- web
 				"selene", -- lua
 				"hadolint", -- dockerfile
 				"shellcheck", -- bash
+				"checkmake", -- makefile
 
 				-- formatter/linters
 				{ "golangci-lint", condition = has_go },

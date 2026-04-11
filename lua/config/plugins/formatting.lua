@@ -29,6 +29,7 @@ return {
 				css = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
+				make = { "bake" },
 				markdown = { "rumdl" },
 				bash = { "shfmt" },
 				sh = { "shfmt" },
