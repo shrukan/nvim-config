@@ -21,6 +21,10 @@ return {
 			return vim.fn.executable("go") == 1
 		end
 
+		local has_temple = function()
+			return vim.fn.executable("temple") == 1
+		end
+
 		local has_python = function()
 			local has_binaries = vim.fn.executable("python3") == 1
 				and (vim.fn.executable("pip") == 1 or vim.fn.executable("pip3") == 1)
@@ -40,6 +44,7 @@ return {
 				"lua-language-server",
 				{ "gopls", condition = has_go },
 				{ "zuban", condition = has_python },
+				{ "templ", condition = has_temple },
 				"typescript-language-server",
 				"angular-language-server",
 				"html-lsp",

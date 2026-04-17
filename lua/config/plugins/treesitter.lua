@@ -35,7 +35,6 @@ return {
 				"html",
 				"css",
 				"scss",
-				"vim",
 				"json",
 				"yaml",
 				"sql",
@@ -50,6 +49,8 @@ return {
 				"markdown_inline",
 				"bash",
 				"regex",
+				"templ",
+				"vim",
 			},
 			incremental_selection = {
 				enable = true,

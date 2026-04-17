@@ -214,6 +214,8 @@ return {
 
 		vim.lsp.enable("marksman")
 
+		vim.lsp.enable("templ")
+
 		vim.lsp.enable("zuban")
 	end,
 }
