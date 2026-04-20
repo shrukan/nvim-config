@@ -27,6 +27,7 @@ return {
 				html = { "prettier" },
 				htmlangular = { "prettier" },
 				css = { "prettier" },
+				jsonc = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
 				make = { "bake" },
