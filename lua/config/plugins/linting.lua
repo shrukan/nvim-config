@@ -41,7 +41,7 @@ return {
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		vim.api.nvim_create_autocmd({ "LspAttach", "BufWritePost" }, {
 			group = lint_augroup,
 			callback = function()
 				lint.try_lint(nil, { cwd = get_lsp_root() })
